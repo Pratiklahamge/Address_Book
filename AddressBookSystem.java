@@ -8,6 +8,7 @@ import java.util.HashMap;
  */
 
 public class AddressBookSystem {
+
 	ArrayList<Contacts> arrayDetails = new ArrayList<Contacts>();
 	static Scanner sc = new Scanner(System.in);
 	static HashMap<String, ArrayList<Contacts>> hashmap = new HashMap<>();
@@ -229,5 +230,3 @@ public class AddressBookSystem {
 		details.createAddressBook();
 	}
 }
-
-

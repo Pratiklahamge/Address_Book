@@ -5,7 +5,6 @@ import java.util.*;
  * Purpose - Ability to search Person in a City or State across the multiple Address Book
  */
 
-
 public class AddressBookMain {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -57,6 +56,5 @@ public class AddressBookMain {
 			}
 		}
 	}
-
 
 }
