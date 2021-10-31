@@ -75,3 +75,4 @@ class Contacts {
 				+ "\n state: " +state + "\n email: " + email + "\n zip: " + zip + "\n phone number:" + phoneNumber + "");
 	}
 }
+
