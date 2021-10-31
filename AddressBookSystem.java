@@ -1,34 +1,15 @@
 package com.bridgelabz;
+import java.util.ArrayList;
+import java.util.Scanner;
 /*
  * Purpose - To create an Address Book System
  */
 
-class Contact{
+class Contacts {
 	private String firstName, lastName, address, city, state, email;
 	private int zip;
 	private long phoneNumber;
 
-	/*
-    Used Constructor to store the Parameter
-    Also used this keyword to make difference between class name variable and constructur name variable
-    because both the variables are same.
-	 */
-	public Contact(String firstName, String lastName, String address, String city, String state, String email, int zip, long phoneNumber) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.email = email;
-		this.zip = zip;
-		this.phoneNumber = phoneNumber;
-	}
-
-	/*
-    Used getter and setter to set and get the value.
-    Setter is used to set the value
-    Getter is used to get the value
-	 */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -92,29 +73,53 @@ class Contact{
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	public String toString() {
+		return ("First name: " + firstName + "\n Last name: " + lastName + "\n Address: " + address + "\n city: " + city
+				+ "\n state: " +state + "\n email: " + email + "\n zip: " + zip + "\n phone number:" + phoneNumber + "");
+	}
 }
 public class AddressBookSystem {
-	static void welcome(){
-		System.out.println("Welcome to Address Book System Program\n");
+	ArrayList<Contacts> arrayDetails = new ArrayList<Contacts>();
+	Scanner sc = new Scanner(System.in);
+
+	/**
+	 * This method is used to add details to address book
+	 */
+	public void addDetails() {
+		Contacts info = new Contacts();
+		System.out.println("Enter the first name");
+		info.setFirstName(sc.nextLine());
+		System.out.println("Enter the last name");
+		info.setLastName(sc.nextLine());
+		System.out.println("Enter the address");
+		info.setAddress(sc.nextLine());
+		System.out.println("Enter the city");
+		info.setCity(sc.nextLine());
+		System.out.println("Enter the state");
+		info.setState(sc.nextLine());
+		System.out.println("Enter the email");
+		info.setEmail(sc.nextLine());
+		System.out.println("Enter the zip code");
+		info.setZip(sc.nextInt());
+		System.out.println("Enter the phone number");
+		info.setPhoneNumber(sc.nextLong());
+		arrayDetails.add(info);
+		sc.close();
+	}
+
+	/**
+	 * This method is used to display the added information
+	 */
+	public void display() {
+		System.out.println(arrayDetails);
 	}
 
 	public static void main(String[] args) {
-		welcome();
-		/*
-	        We are just calling an object using class name.
-	        Simply passing the argument value according to the parameter defined in the constructor.
-		 */
-		Contact details = new Contact("gajanan", "pratik", "karanja, washim", "washim",
-				"maharastra", "ps@gmail.com", 444105, 7745485245L);
-		System.out.println("The following contact details is mentioned below : \n");
-		System.out.println("First Name : " + details.getFirstName());
-		System.out.println("Last Name  : " + details.getLastName());
-		System.out.println("Address    : " + details.getAddress());
-		System.out.println("City       : " + details.getCity());
-		System.out.println("State      : " + details.getState());
-		System.out.println("E-mail     : " + details.getEmail());
-		System.out.println("Zip Code   : " + details.getZip());
-		System.out.println("Phone No   : " + details.getPhoneNumber());
+		System.out.println("Welcome to Address Book Program");
+		AddressBookSystem details = new AddressBookSystem();
+		details.addDetails();
+		details.display();
 	}
 
 
