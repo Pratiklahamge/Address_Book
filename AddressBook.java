@@ -11,6 +11,7 @@ public class AddressBook {
 	public static Map<String, Contacts> cityHashMap = new HashMap<String, Contacts>();
 	public static Map<String, Contacts> stateHashMap = new HashMap<String, Contacts>();
 
+
 	public boolean addContact(Contacts contact) {
 		List<Contacts> checkByName = searchByName(contact.getFirstName());
 		for (Contacts equalName : checkByName)
@@ -99,7 +100,7 @@ public class AddressBook {
 		sc.nextLine();
 		System.out.print("Enter Email ID: ");
 		String email = sc.nextLine();
-		return new Contacts ();
+		return new Contacts();
 	}
 
 	// method for show option for contacts
@@ -229,5 +230,32 @@ public class AddressBook {
 			System.out.println("INVALID CHOICE!");
 		}
 	}
-}
 
+	//method to count element by option
+	public void countByOption() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1. Count City ");
+		System.out.println("2. Count State");
+		System.out.println("3. Back ");
+		System.out.println("Enter Your Choice : ");
+		int choice = sc.nextInt();
+		sc.nextLine();
+		switch (choice) {
+		case 1:
+			Map<String, Long> countCity = contactList.stream()
+			.collect(Collectors.groupingBy(e -> e.getCity(), Collectors.counting()));
+			System.out.println(countCity + "\n");
+			break;
+		case 2:
+			Map<String, Long> countState = contactList.stream()
+			.collect(Collectors.groupingBy(e -> e.getState(), Collectors.counting()));
+			System.out.println(countState + "\n");
+			break;
+		case 3:
+			return;
+		default:
+			System.out.println("Invalid Option");
+		}
+	}
+
+}
