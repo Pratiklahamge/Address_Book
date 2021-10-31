@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
-public class Contacts {
+class Contacts {
+
 	private String firstName, lastName, address, city, state, email;
 	private int zip;
 	private long phoneNumber;
@@ -73,6 +74,4 @@ public class Contacts {
 		return ("First name: " + firstName + "\n Last name: " + lastName + "\n Address: " + address + "\n city: " + city
 				+ "\n state: " +state + "\n email: " + email + "\n zip: " + zip + "\n phone number:" + phoneNumber + "");
 	}
-	
-
 }
